@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Day Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+<link href="assets/css/stylepages.css" rel="stylesheet">
+
+</head>
+<html>
+<body>
+<!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">alisiazarbo@studio.unibo.it.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">P&P</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="#hero" style="color: #fff">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Queries</span> <i class="bi bi-chevron-down"></i></a>
+            <ul style="background-color: #92523a">
+              <li style="background-color: #92523a"><a href="#first">First Query</a></li>
+              <li style="background-color: #92523a"><a href="#second">Second Query</a></li>
+             </ul>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+<h2> Querying the text </h2>
+<p> The idea is to provide to the user an overview of the text exploiting three different ways of analysis provided by the main useful digital tools.
+How showed in the section about the encoding phase, the text has been marked in a way that could made possible some actions on it.
+The first step was realized with some queries done with both XPath (for the extraction of the data) and Python (for the refining and the structuration of the data collected); the results obtained by the queries will be then necessary to the following step of analysis.</p>
+
+<hr>
+
+<h2> The Queries </h2>
+<p> The first datum required is the collection of all the <code>"key"</code> attributes related to the <code> &ltpersName&gt </code> tag, this action enable the achievement of the list of all the characters named in the story.
+Since the result of this query returns a list containing every key in all its occurencies, it's necessary to refine this structure in order to visualize a list with just one occurency per character.
+In this case, the possibilities are many; personally, I choosed the most suitable to my abilities. Oxygen makes a user able to embed the results of his query in different formats, I decided to export in a <code> .txt </code> format the collection obtained and then to work on it with Python, where I sorted the list and then created a set.</p>
+
+<h4 id="first">XPath</h4>
+<div class="coding">
+<p><code>//persName/@key</code></p>
+</div>
+
+<h4>Python</h4>
+
+<h5> The code </h5>
+<div class="coding">
+<p><code>f = open('char.txt', 'r')<br>
+list_of_characters = f.read()<br>
+create_list = message.split()<br>
+one_occ = set(create_list)<br>
+anewlist = list(one_occ)<br>
+final = sorted(anewlist)<br>
+print(final)</code></p>
+</div>
+
+<h5> The result </h5>
+<div class="coding" style="padding: 1.5vw">
+<code>
+['CarolineBingley', 'CatherineBennet', 'CatherinedeBourgh', 'CharlesBingley', 'CharlotteCollins', 'CharlotteLucas', 'EdwardGardiner', 'ElizabethBennet', 'FitzwilliamDarcy', 'GeorgeWickham', GeorgianaDarcy', 'HarrietForster', 'JaneBennet', 'LadyLucas', 'LewisdeBourgh', 'LouisaHurst' 'LydiaBennet', 'MaryBennet', 'MaryKing', 'MrBennet', 'MrForster', 'MrHurst', 'MrPhillips', 'MrRobinson', 'MrsBennet', 'MrsGardiner', 'MrsHill', 'MrsLong', 'MrsPhillips', 'MrsWickham', 'WilliamCollins', 'William Lucas']
+</code>
+</div>
+<h4 style="padding-top: 3vw"> The final result </h4>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Character</th>
+  </tr>
+  <tr>
+    <td>#CarolineBingley</td>
+    <td>Caroline Bingley</td>
+  </tr>
+  <tr>
+    <td>#CatherineBennet</td>
+    <td>Catherine Bennet</td>
+  </tr>
+  <tr>
+    <td>#CatherinedeBourgh</td>
+    <td>Catherine de Bourgh</td>
+  </tr>
+  <tr>
+    <td>#CharlesBingley</td>
+    <td>Charles Bingley</td>  
+  </tr>
+  <tr>
+     <td>#CharlotteCollins</td>
+     <td>Charlotte Collins</td>
+  </tr> 
+  <tr>
+    <td>#CharlotteLucas</td>
+    <td>Charlotte Lucas</td>
+  </tr>
+  <tr>
+     <td>#EdwardGardiner</td>
+     <td>Edward Gardiner</td>
+  </tr>
+  <tr>
+    <td>#ElizabethBennet</td>
+    <td>Elizabeth Bennett</td> 
+  </tr>
+  <tr>
+     <td>#FitzwilliamDarcy</td>
+     <td>Fitzwilliam Darcy</td>
+  </tr> 
+  <tr>
+     <td>#GeorgeWickham</td>
+     <td>GeorgeWickham</td>
+  </tr>
+  <tr>
+     <td>#GeorgianaDarcy</td>
+     <td>Georgiana Darcy</td>
+  </tr>
+  <tr>
+     <td>#HarrietForster</td>
+     <td>Harriet Forster</td>
+  </tr> 
+
+  <tr>
+    <td>#JaneBennet</td>
+    <td>Jane Bennet</td>
+  
+  </tr>
+  <tr>
+    <td>#LadyLucas</td>
+    <td>Lady Lucas</td>
+  </tr>
+  <tr>
+    <td>#LewisdeBourgh</td>
+    <td>Lewis de Bourgh</td>
+  </tr>
+     <tr>
+     	<td>#LouisaHurst</td>
+     	<td>Louisa Hurst</td>
+     </tr>     
+     <tr>
+     	<td>#LydiaBennet</td>
+     	<td>Lydia Bennet</td>
+     </tr>  
+     <tr>
+     	<td>#MaryBennet</td>
+     	<td>Mary Bennet</td>
+     </tr>   
+     <tr>   
+     	<td>#MaryKing</td>
+     	<td>Mary King</td>
+     </tr>  
+     <tr>
+     	<td>#MrBennet</td>
+     	<td>Mr. Bennet</td>
+     </tr>       
+     <tr>
+     	<td>#MrForster</td>
+     	<td>Colonel Forster</td>
+     </tr>   
+     <tr>   
+     	<td>#MrHurst</td>
+     	<td>Mr. Hurst</td>
+     </tr> 
+     <tr>
+     	<td>#MrPhillips</td>
+     	<td>Mr. Phillips</td>
+     </tr>  
+     <tr>
+     	<td>#MrRobinson</td>
+     	<td>Mr. Robinson</td>
+     </tr>    
+     <tr>
+     	<td>#MrsBennet</td>
+     	<td>Mrs. Bennet</td>
+     </tr>       
+    <tr>
+    	<td>#MrsGardiner</td>
+    	<td>Mrs. Gardiner</td>
+    </tr>  
+     <tr>
+     	<td>#MrsHill</td>
+     	<td>Mrs. Hill</td>
+     </tr>     
+     <tr>
+     	<td>#MrsLong</td>
+     	<td>Mrs. Long</td>
+     </tr>  
+     <tr>
+     	<td>#MrsPhillips</td>
+     	<td>Mrs Phillips</td>
+     </tr>  
+     <tr>
+     	<td>#MrsWickham</td>
+     	<td>Mrs. Wickham</td>
+     </tr>  
+     <tr>
+     	<td>#WilliamCollins</td>
+     	<td>William Collins</td>
+     </tr>
+	 <tr>
+     	<td>#WilliamLucas</td>
+     	<td>William Lucas</td>
+     </tr>      
+</table>
+<br>
+<hr>
+<p>Once the list of character has been collected, the second step is to obtain the different names under which every character appears. This information is necessary for the following step, that about the computation of the occurencies of every character trough Voyant.</p>
+<h4 id="second">Xpath</h4>
+<div class="coding">
+<p><code>//persName[@key='WilliamLucas']//text()</code></p>
+</div>
+<p>The key inserted is just an example to show how the code works, it has been executed for every key collected in the previous query.</p>
+
+<h4> The final result </h4>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Character</th>
+    <th>Name variants</th>
+  </tr>
+  <tr>
+    <td>#CarolineBingley</td>
+    <td>Caroline Bingley</td>
+    <td>'Miss Bingley', 'Caroline', 'Caroline Bingley'</td>
+  </tr>
+  <tr>
+    <td>#CatherineBennet</td>
+    <td>Catherine Bennet</td>
+    <td>'Catherine', 'Kitty'</td>
+  </tr>
+  <tr>
+    <td>#CatherinedeBourgh</td>
+    <td>Catherine de Bourgh</td>
+    <td>'Catherine', 'Lady Catherine', 'Catherine de Bourgh'</td>
+  </tr>
+  <tr>
+    <td>#CharlesBingley</td>
+    <td>Charles Bingley</td>
+    <td>'Charles', 'Bingley', 'Mr. Bingley'</td>  
+  </tr>
+  <tr>
+     <td>#CharlotteCollins</td>
+     <td>Charlotte Collins</td>
+     <td>'Mrs Collins'</td>
+  </tr> 
+  <tr>
+    <td>#CharlotteLucas</td>
+    <td>Charlotte Lucas</td>
+    <td>'Miss Lucas', 'Charlotte'</td>
+  </tr>
+  <tr>
+     <td>#EdwardGardiner</td>
+     <td>Edward Gardiner</td>
+     <td>'Mr Gardiner'</td>
+  </tr>
+  <tr>
+    <td>#ElizabethBennet</td>
+    <td>Elizabeth Bennett</td> 
+    <td>'Lizzy', 'Eliza', 'Elizabeth', 'Miss Eliza'</td>
+  </tr>
+  <tr>
+     <td>#FitzwilliamDarcy</td>
+     <td>Fitzwilliam Darcy</td>
+     <td>'Mr. Darcy', 'Colonel Fitzwilliam', 'Darcy'</td>
+  </tr> 
+  <tr>
+     <td>#GeorgeWickham</td>
+     <td>GeorgeWickham</td>
+     <td>'Mr. Wickham', 'George', 'George Wickham'</td>
+  </tr>
+  <tr>
+     <td>#GeorgianaDarcy</td>
+     <td>Georgiana Darcy</td>
+     <td>'Miss Darcy', 'Georgiana', 'Georgiana Darcy'</td>
+  </tr>
+  <tr>
+     <td>#HarrietForster</td>
+     <td>Harriet Forster</td>
+     <td>'Harriet', 'Mrs Forster'</td>
+  </tr> 
+
+  <tr>
+    <td>#JaneBennet</td>
+    <td>Jane Bennet</td>
+    <td>'Jane'</td>
+  
+  </tr>
+  <tr>
+    <td>#LadyLucas</td>
+    <td>Lady Lucas</td>
+    <td>'Lady Lucas'</td>
+
+  </tr>
+  <tr>
+    <td>#LewisdeBourgh</td>
+    <td>Lewis de Bourgh</td>
+    <td>'Sir Lewis de Bourgh'</td>
+
+  </tr>
+     <tr>
+     	<td>#LouisaHurst</td>
+     	<td>Louisa Hurst</td>
+     	<td>'Mrs Hurst', 'Louisa'</td>
+     </tr>     
+     <tr>
+     	<td>#LydiaBennet</td>
+     	<td>Lydia Bennet</td>
+     	<td>'Lydia'</td>
+     </tr>  
+     <tr>
+     	<td>#MaryBennet</td>
+     	<td>Mary Bennet</td>
+     	<td>'Mary'</td>
+     </tr>   
+     <tr>   
+     	<td>#MaryKing</td>
+     	<td>Mary King</td>
+     	<td>'Miss King', 'Mary King', 'Mary'</td>
+     </tr>  
+     <tr>
+     	<td>#MrBennet</td>
+     	<td>Mr. Bennet</td>
+     	<td>'Mr Bennet'</td>
+     </tr>       
+     <tr>
+     	<td>#MrForster</td>
+     	<td>Colonel Forster</td>
+     	<td>'Colonel Forster'</td>
+     </tr>   
+     <tr>   
+     	<td>#MrHurst</td>
+     	<td>Mr. Hurst</td>
+     	<td>'Mr Hurst'</td>
+     </tr> 
+     <tr>
+     	<td>#MrPhillips</td>
+     	<td>Mr. Phillips</td>
+     	<td>'Mr Phillips'</td>
+     </tr>  
+     <tr>
+     	<td>#MrRobinson</td>
+     	<td>Mr. Robinson</td>
+     	<td>'Mr Robinson'</td>
+     </tr>    
+     <tr>
+     	<td>#MrsBennet</td>
+     	<td>Mrs. Bennet</td>
+     	<td>'Mrs Bennet'</td>
+     </tr>       
+    <tr>
+    	<td>#MrsGardiner</td>
+    	<td>Mrs. Gardiner</td>
+    	<td>'Mrs Gardiner'</td>
+    </tr>  
+     <tr>
+     	<td>#MrsHill</td>
+     	<td>Mrs. Hill</td>
+     	<td>'Mrs Hill'</td>
+     </tr>     
+     <tr>
+     	<td>#MrsLong</td>
+     	<td>Mrs. Long</td>
+     	<td>'Mrs Long'</td>
+     </tr>  
+     <tr>
+     	<td>#MrsPhillips</td>
+     	<td>Mrs Phillips</td>
+     	<td>'Mrs Phillips'</td>
+     </tr>  
+     <tr>
+     	<td>#MrsWickham</td>
+     	<td>Mrs. Wickham</td>
+     	<td>'Mrs Wickham'</td>
+     </tr>  
+     <tr>
+     	<td>#WilliamCollins</td>
+     	<td>William Collins</td>
+     	<td>'Mr Collins'</td>
+     </tr>
+	 <tr>
+     	<td>#WilliamLucas</td>
+     	<td>William Lucas</td>
+     	<td>'Sir Lucas', 'Sir William Lucas', 'William' </td>
+     </tr>      
+</table>
+<br>
+<hr>
+<h2> How this data can help our analysis </h2>
+<p> In the section about the textual analysis executed with Voyant, the data collected will be reused to obtain the occurencies of every character in the txt, in order to establish a sort of gerarchy of the importance of every character inside the story.
+Many other informations could be reached quering the text with Xpath; in this case, it has been decided to extract just the information needed to proceed with the analysis. </p>
+
+ <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Day</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
