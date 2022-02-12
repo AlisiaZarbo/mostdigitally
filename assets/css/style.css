@@ -12,7 +12,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive&family=Domine:wght@700&family=Playfair+Display:wght@600&family=Righteous&family=Rochester&family=Source+Serif+Pro:wght@600&family=Ubuntu+Mono:wght@700&display=swap');
 
-body {
+code{
+  color: #cfe2e2;
+}
+    
+ body {
   font-family: "Open Sans", sans-serif;
   color: #f0e0db;
 }
