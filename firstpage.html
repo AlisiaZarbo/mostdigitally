@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Most Digitally</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="assets/css/stylepages.css" rel="stylesheet">
+</head>
+<body class="tei" style="background-color: #4d8080">
+<!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:alisiazarbo@studio.unibo.com">alisia.zarbo@studio.unibo.it.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.html">P&P</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li class="dropdown"><a href="index.html"><span>Home</span> <i class="bi bi-chevron-down"></i></a>
+            <ul style="background-color: #9fc6c6">
+              <li style="background-color: #9fc6c6"><a href="Xexpath.html">Queries</a></li>
+              <li style="background-color: #9fc6c6"><a href="Voyant.html">Textual analysis</a></li>
+              <li style="background-color: #9fc6c6"><a href="gephi.html">Network analysis</a></li>
+             </ul>
+          <li class="dropdown"><a href="#"><span>The encoding</span> <i class="bi bi-chevron-down"></i></a>
+            <ul style="background-color: #9fc6c6">
+              <li style="background-color: #9fc6c6"><a href="#names">Names</a></li>
+              <li style="background-color: #9fc6c6"><a href="#places">Places</a></li>
+              <li style="background-color: #9fc6c6"><a href="#text">Text's parts</a></li>
+             </ul>
+             <li><a class="nav-link scrollto" href="#file">Encoded file</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <h2 style="color: #cfe2e2" id="encoding">THE ENCODING </h2>
+  <p> The encoding applied to this text has been done according to the data required by the subsequent tests to be done. Thus, it has been decided to focus on three main aspects: names, places and parts of the text.
+  </p>
+  <hr>
+  <h4 style="color: #cfe2e2" id="names">NAMES</h4>
+ <p> As detailed described in '<a href="https://tei-c.org/release/doc/tei-p5-doc/en/html/ND.html">Names, Dates, People and Places'</a> section of the TEI guidelines website, the are many ways to encode a name, from the most generic <code>&ltrs&gt</code> element to the more detailed <code>&ltpersName&gt</code> element. This last, in particular, seemed to be the more appropriate to our necessities.
+Inside the <code>&ltpersName&gt</code> element, indeed, it is possible to encode in a deepen way all the parts of a name, that one chosed for our encoding will be shown in the section below.</p>
+
+<table class="occ">
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>Surname</td>
+    <td><code>&ltsurname&gt</code></td>
+  </tr>
+  <tr>
+    <td>Given name</td>
+    <td><code>&ltforename&gt</code></td>
+  </tr>
+  <tr>
+    <td>Title(Mr., Mrs., Miss)</td>
+    <td><code>&ltaddName&gt</code></td>
+  </tr>
+  <tr>
+    <td>Official title</td>
+    <td><code>&ltroleName&gt</code> specifying type: nobility, military</td>
+  </tr>
+  <tr>
+     <td>Nickname</td>
+     <td><code>&ltaddName type="nick"&gt</code></td>
+  </tr> 
+</table>
+
+<p>Obviously, every persname has been marked together with a key needed for identify the character to which that name belongs.</p>
+<hr>
+<h4 style="color: #cfe2e2" id="places">PLACES</h4>
+<p>The places in this story have a great importance; thus, it has been decided to mark them in a deepen way as well.
+Within the generic element <code>&ltplaceName&gt</code>, when needed, some other elements have been used to specify in a deepen way other peculiarities of that place, that one chosed for our encoding will be shown below.</p>
+
+<table class="occ">
+  <tr>
+    <th>Type</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>Cities</td>
+    <td><code>&ltsettlement type="city"&gt</code></td>
+  </tr>
+    <td>Estates</td>
+    <td><code>&ltsettlement type="estate"&gt</code></td>
+  <tr>
+    <td>Countries</td>
+    <td><code>&ltcountry&gt</code></td>
+  </tr>
+  <tr>
+    <td>Cardinal points</td>
+    <td><code>&ltoffset&gt</code></td>
+  </tr>
+  <tr>
+    <td>Counties</td>
+    <td><code>&ltdistrict type="county"&gt</code></td>
+  </tr>
+</table>
+<p></p>
+<hr>
+<h4 style="color: #cfe2e2" id="text">TEXT'S PARTS</h4>
+<p>As required, the text part has been encoded in all its main parts. All the descriptive informations about the work has been included in the &ltfileDesc&gt, the title inside the <code>&lttitleStmt&gt</code> tag, where the <code>&lttitle&gt</code> element encode the title and the <code>&ltauthor&gt</code> encode the datum about the author.
+The rest of the work is divide in chapter, encoded in a <code>&ltdiv&gt</code> element where is specified the <code>&lttype="chapter"&gt</code>.
+  </p>
+
+  <h2 style="color: #cfe2e2" id="file">THE ENCODED FILE</h2>
+  <p> The encoded file is provided below.</p> 
+  <div id="gisthub">
+  <script id="gist" src="https://gist.github.com/AlisiaZarbo/6b9f6d63b8da8c3aa7fec699ff1878f1.js"></script>
+</div>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Most Digitally</span></strong>. All Rights Reserved
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
